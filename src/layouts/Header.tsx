@@ -13,7 +13,7 @@ function Header() {
             <p className="link p-5 mr-10">Check my Github</p>
           </div>
           <div className="content flex flex-4 space-around none-xsmall">
-            <Button style={'primary'} text='Get started free' className="mr-10"></Button>
+            <a href="./search"><Button style={'primary'} text='Get started free' className="mr-10"></Button></a>
             <Button style={'secondary'} text='Read more' className="ml-10 none-small"></Button>
           </div>
         </div>

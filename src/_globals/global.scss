@@ -173,25 +173,43 @@ $secondary-color:#2A73FF;
     }
 }
 .search{
+    position: relative;
     background-color: $light-grey;
     width:80%;
     box-shadow: #6f76803f 0 0 4px;
     border-radius: 10px;
     overflow: hidden;
+    transition: all 0.5s ease;
     input{
         width:100%;
         padding:20px;
         background-color: $light-grey;
         border:none;
+        transition: all 0.5s ease;
     }
     input:focus{
         outline-style: none;
         outline: none;
+        background-color: white;
     }
     .next{
-        border-radius: 30px;
+        position: absolute;
+        right:0px;
+        top:0px;
+        color:white;
         height:100%;
-        width:20px;
+        width:10%;
         background-color: $secondary-color;
+        transition: all ease 0.5s;
     }
+    .next:hover{
+        cursor: pointer;
+        transform: scale(1.03);
+        box-shadow: $secondary-color 0 0 4px;
+    }
+}
+
+.search:focus-within{
+    
+    box-shadow: $secondary-color 0 0 10px;
 }
