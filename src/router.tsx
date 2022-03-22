@@ -1,8 +1,13 @@
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import Landing from "./pages/Landing";
+import Search from "./pages/Search";
 
-export function Router() {
+function Router() {
   return (
     <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/search" element={<Search />} />
     </Routes>
   );
 }
+export default Router;

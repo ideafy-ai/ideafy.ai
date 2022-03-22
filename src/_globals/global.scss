@@ -2,6 +2,7 @@ $primary-color:#243141;
 $primary-color-light:#6F7680;
 $light-grey:#EAECEE;
 $secondary-color:#2A73FF;
+
 .full-container{
     width:100%;
     display: flex;
@@ -121,4 +122,76 @@ $secondary-color:#2A73FF;
 }
 .background-white{
     background-color: #fff;
+}
+.column{
+    flex-direction: column;
+}
+.flex-start{
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.paragraph{
+    color: $primary-color-light;
+    font-size: 1.2rem;
+}
+.mt-10{
+    margin-top: 10px;
+}
+.p-0{
+    padding:0px !important;
+}
+.image-container{
+    position: relative;
+    overflow: hidden;
+    height: 90vh;
+    margin-top:100px;
+}
+.landing-image{
+    position:absolute;
+    bottom:-300px;
+    left:-160px;
+    animation: floating-hand 1s ease-in-out infinite alternate;
+}
+@media (max-width:1000px) {
+    .none-small{
+        display:none;
+    }
+}
+@media (max-width:500px) {
+    .none-xsmall{
+        display:none;
+    }
+    .App{
+        margin-top:50px;
+    }
+}
+@keyframes floating-hand {
+    0%{
+        transform: translateY(0px) rotateX(0deg) translateX(-28%);
+    }100%{
+        transform: translateY(20px) rotateX(20deg) translateX(-28%);
+    }
+}
+.search{
+    background-color: $light-grey;
+    width:80%;
+    box-shadow: #6f76803f 0 0 4px;
+    border-radius: 10px;
+    overflow: hidden;
+    input{
+        width:100%;
+        padding:20px;
+        background-color: $light-grey;
+        border:none;
+    }
+    input:focus{
+        outline-style: none;
+        outline: none;
+    }
+    .next{
+        border-radius: 30px;
+        height:100%;
+        width:20px;
+        background-color: $secondary-color;
+    }
 }
