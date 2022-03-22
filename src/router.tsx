@@ -7,6 +7,7 @@ function Router() {
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="/search" element={<Search />} />
+      <Route path="/search/:user" element={<Search />} />
     </Routes>
   );
 }
