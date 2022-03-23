@@ -5,7 +5,7 @@ function Card(props: any) {
     <div className="content bg-light-grey card">
       <div className="info flex flex-start mr-10">
         <div className="avatar">
-          <img src={avatar}></img>
+          <img src={avatar} alt="user"></img>
         </div>
         <div className="flex column ml-10 flex-start mt-10">
           <p className="header-3 p-0 m-0">Title</p>
