@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import GithubService from "../services/Github.service";
 import { useEffect, useState } from "react";
 function Search() {
-  const [repos, setRepos] = useState([""]);
+  const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
   const match = { params: useParams() };
   useEffect(() => {
@@ -15,17 +15,17 @@ function Search() {
       setLoading(false);
     });
   }, [loading]);
-  if (match.params.user && repos) {
+  if (match.params.user && repos.length) {
     return (
       <div className="container flex-12 flex h-auto wrap column">
         <h1 className="title">Search using Repository Name</h1>
-        <SearchBar type="big" placeholder="Type the repository's name" />
+          <SearchBar type="big" placeholder="Type the repository's name" loading={loading} setLoading={setLoading} />
         <div className="card-container">
           {(() => {
             const cards = [];
 
-            for (let i = 0; i <= repos.length; i++) {
-              cards.push(<Card />);
+            for (let i = 0;i < repos.length; i++) {
+              cards.push(<Card key={i} repo={repos[i]}/>)
             }
             return cards;
           })()}
@@ -36,7 +36,7 @@ function Search() {
   return (
     <div className="container flex-12 flex h-100 wrap column">
       <h1 className="title">Type in github username</h1>
-      <SearchBar type="big" placeholder="Type the github username" />
+      <SearchBar type="big" placeholder="Type the github username" loading={loading} setLoading={setLoading} />
     </div>
   );
 }
