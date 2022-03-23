@@ -4,10 +4,13 @@ import "../_globals/global.scss";
 function SearchBar(props: any) {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
+  const navigateToSearch = () => {
+    navigate("/search/" + search);
+    props.setLoading(true);
+  };
   const handleKeyPress = (event: any) => {
     if (event.key === "Enter") {
-      navigate("/search/" + search);
-      props.setLoading(true);
+      navigateToSearch();
     }
   };
   return (
@@ -20,13 +23,7 @@ function SearchBar(props: any) {
         }}
         onKeyPress={handleKeyPress}
       ></input>
-      <div
-        className="next flex"
-        onClick={() => {
-          navigate("/search/" + search);
-          props.setLoading(true);
-        }}
-      >
+      <div className="next flex" onClick={navigateToSearch}>
         Go
       </div>
     </div>
