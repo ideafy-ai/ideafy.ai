@@ -14,6 +14,7 @@ function Search() {
       console.log(repos);
       setLoading(false);
     });
+    // eslint-disable-line react-hooks/exhaustive-deps
   }, [loading]);
   if (match.params.user && repos.length) {
     return (

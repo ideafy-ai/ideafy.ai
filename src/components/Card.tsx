@@ -1,5 +1,4 @@
 import "../_globals/global.scss";
-import avatar from "../assets/avatar.jpg";
 import RepositoryModel from "../moodels/Repository.model";
 function Card(props: any) {
   const repo: RepositoryModel = props.repo;
@@ -20,7 +19,7 @@ function Card(props: any) {
           </div>
         </div>
         <div className="content">
-          <p className="mt-10 paragraph paragraph-small">
+          <p className="mt-10 paragraph paragraph-small no-overflow-bigger">
             {repo.description ? repo.description : "No Description"}
           </p>
         </div>
