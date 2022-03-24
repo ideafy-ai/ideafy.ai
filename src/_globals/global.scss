@@ -183,18 +183,18 @@ $secondary-color: #2a73ff;
 }
 .landing-image {
   position: absolute;
-  bottom: -300px;
+  top: 200px;
   left: -160px;
   animation: floating-hand 1s ease-in-out infinite alternate;
 }
 @media (max-height: 600px) {
   .landing-image {
-    bottom: -100%;
+    top: 50px;
   }
 }
 @media (max-height: 800px) and (min-height: 601px) {
   .landing-image {
-    bottom: -60%;
+    top: 50px;
   }
 }
 .h-auto {
