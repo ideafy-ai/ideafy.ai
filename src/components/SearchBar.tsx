@@ -17,7 +17,7 @@ function SearchBar(props: any) {
       if (search !== "")
         props.setRepos(
           repos.filter((el: RepositoryModel) => {
-            return el.name.includes(search);
+            return el.name.toLowerCase().includes(search.toLocaleLowerCase());
           })
         );
     }
