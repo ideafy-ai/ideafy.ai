@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import RepositoryModel from "../moodels/Repository.model";
+import RepositoryModel from "../models/Repository.model";
 import "../_globals/global.scss";
 function SearchBar(props: any) {
   const [search, setSearch] = useState("");

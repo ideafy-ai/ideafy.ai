@@ -15,8 +15,8 @@ function Header() {
             <h1 className="header-1 p-5">Github Fetch</h1>
           </div>
           <div className="content flex-4 flex none-small">
-            <a href="https://github.com/Dopeamin">
-              <p className="link p-5 mr-10">Check my Github</p>
+            <a href="https://github.com/Dopeamin" target="_blank">
+              <p className="link p-5 mr-10" >Check my Github</p>
             </a>
           </div>
           <div className="content flex flex-4 space-around none-xsmall">

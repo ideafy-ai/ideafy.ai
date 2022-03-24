@@ -1,5 +1,5 @@
 import "../_globals/global.scss";
-import RepositoryModel from "../moodels/Repository.model";
+import RepositoryModel from "../models/Repository.model";
 function Card(props: any) {
   const repo: RepositoryModel = props.repo;
   const date1 : any = new Date(repo.updated_at);
@@ -7,7 +7,7 @@ function Card(props: any) {
   const diffTime = Math.abs(date2 - date1);
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   return (
-    <a href={repo.html_url}>
+    <a href={repo.html_url} target="_blank">
       <div className="content bg-light-grey card">
         <div className="info flex flex-start mr-10">
           <div className="avatar">

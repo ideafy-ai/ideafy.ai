@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import GithubService from "../services/Github.service";
 import { useEffect, useState } from "react";
 import { ClipLoader, RotateLoader } from "react-spinners";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 function Search() {
   const [repos, setRepos] = useState([]);
   const [allRepos, setAllRepos] = useState([]);
@@ -22,7 +24,13 @@ function Search() {
   }, [loading]);
   if (match.params.user) {
     return (
-      <div className="container flex-12 flex h-auto wrap column">
+      <div className="container flex-12 flex h-auto wrap column relative">
+        <div className="rewind">
+          <a href="/search">
+            <FontAwesomeIcon icon={faAngleLeft} />
+          </a>
+        </div>
+
         <h1 className="title">Search using Repository Name</h1>
         <SearchBar
           type="big"
@@ -51,12 +59,7 @@ function Search() {
   return (
     <div className="container flex-12 flex h-100 wrap column">
       <h1 className="title">Type in github username</h1>
-      <SearchBar
-        type="big"
-        placeholder="Type the github username"
-        loading={loading}
-        setLoading={setLoading}
-      />
+      <SearchBar type="big" placeholder="Type the github username" loading={loading} setLoading={setLoading} />
     </div>
   );
 }

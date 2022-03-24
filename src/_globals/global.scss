@@ -197,6 +197,17 @@ $secondary-color: #2a73ff;
     top: 50px;
   }
 }
+.rewind{
+  position: absolute;
+  top:-20px;
+  left:0px;
+  padding:30px;
+  font-size:2rem;
+  height:10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .h-auto {
   height: auto;
   margin-top: 150px;
@@ -224,6 +235,9 @@ $secondary-color: #2a73ff;
 }
 .m-0 {
   margin: 0px;
+}
+.relative{
+  position: relative;
 }
 .search {
   position: relative;
