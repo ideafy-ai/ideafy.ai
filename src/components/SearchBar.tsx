@@ -6,7 +6,12 @@ import "../_globals/global.scss";
 function SearchBar(props: any) {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
-  const params = useParams();
+
+  /**
+   * Navigate to specific user repositories or filter through a user's repository
+   * and show a toast if there is no data found
+   * @param {ant} event
+   */
   const navigateToSearch = (event: any) => {
     if (props.user === undefined) {
       navigate("/search/" + search);
@@ -31,7 +36,11 @@ function SearchBar(props: any) {
       }
     }
   };
-
+  /**
+   * Handle Key press enter inside of search field to
+   * trigger search.
+   * @param {any} event
+   */
   const handleKeyPress = (event: any) => {
     if (event.key === "Enter") {
       navigateToSearch(event);

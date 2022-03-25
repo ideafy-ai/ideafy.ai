@@ -8,13 +8,19 @@ function Card(props: any) {
   const date2: any = new Date();
   const [visible, setVisible] = useState(false);
   const diffTime = Math.abs(date2 - date1);
+  /**
+   * Calculate Date difference
+   */
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  /**
+   * Show the modal
+   */
   const showModal = () => {
     setVisible(!visible);
   };
   return (
     <>
-    
       <div className="content bg-light-grey card" onClick={showModal}>
         <div className="info flex flex-start mr-10">
           <div className="avatar">
@@ -26,14 +32,25 @@ function Card(props: any) {
           </div>
         </div>
         <div className="content">
-          <p className="mt-10 paragraph paragraph-small no-overflow-bigger">{repo.description ? repo.description : "No Description"}</p>
+          <p className="mt-10 paragraph paragraph-small no-overflow-bigger">
+            {repo.description ? repo.description : "No Description"}
+          </p>
         </div>
         <div className="content flex space-between">
-          <p className="paragraph paragraph-xsmall flext-6">{repo.language ? repo.language : "No Language"}</p>
-          <p className="paragraph paragraph-xsmall flext-6">{diffDays} day(s) ago</p>
+          <p className="paragraph paragraph-xsmall flext-6">
+            {repo.language ? repo.language : "No Language"}
+          </p>
+          <p className="paragraph paragraph-xsmall flext-6">
+            {diffDays} day(s) ago
+          </p>
         </div>
       </div>
-      <Modal visible={visible} setVisible={setVisible} repo={repo} className="absolute"/>
+      <Modal
+        visible={visible}
+        setVisible={setVisible}
+        repo={repo}
+        className="absolute"
+      />
     </>
   );
 }

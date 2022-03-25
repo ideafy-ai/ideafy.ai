@@ -15,6 +15,10 @@ function Search() {
   const match = { params: useParams() };
   const color = "#2a73ff";
   const navigate = useNavigate();
+
+  /**
+   * Get specific repos on search field submit
+   */
   useEffect(() => {
     setRepos([]);
     GithubService.getRepositories(match.params.user!).then((res) => {
@@ -60,14 +64,19 @@ function Search() {
         </div>
         <div className="card-container">
           <ClipLoader color={color} loading={loading} size={150}></ClipLoader>
-          {(() => {
-            const cards = [];
+          {
+            /**
+             * Render cards for each specific repo
+             */
+            (() => {
+              const cards = [];
 
-            for (let i = 0; i < repos.length; i++) {
-              cards.push(<Card key={i} repo={repos[i]} />);
-            }
-            return cards;
-          })()}
+              for (let i = 0; i < repos.length; i++) {
+                cards.push(<Card key={i} repo={repos[i]} />);
+              }
+              return cards;
+            })()
+          }
         </div>
       </div>
     );
