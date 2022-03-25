@@ -55,6 +55,7 @@ function SearchBar(props: any) {
           onChange={(event) => {
             setSearch(event.target.value);
           }}
+          data-testid="repository"
           onKeyPress={handleKeyPress}
         ></input>
         <div className="next flex" onClick={navigateToSearch}>
@@ -71,6 +72,7 @@ function SearchBar(props: any) {
           setSearch(event.target.value);
         }}
         onKeyPress={handleKeyPress}
+        data-testid="username"
       ></input>
     </div>
   );

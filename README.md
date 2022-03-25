@@ -117,6 +117,18 @@ npm run start
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+
+<!-- Testing -->
+
+## Testing
+
+To run the test suite run this command
+```sh
+npm run test
+````
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!-- ROADMAP -->
 
 ## Roadmap
