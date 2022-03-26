@@ -1,25 +1,45 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
+import React, { useEffect, useState } from "react";
+import { act, findByTestId, fireEvent, render, screen, waitFor, waitForElementToBeRemoved } from "@testing-library/react";
 import Search from "./Search";
+import SearchBar from "../components/SearchBar";
+import { MemoryRouter } from "react-router";
+import { wait } from "@testing-library/user-event/dist/utils";
+import App from "../App";
+import Router from "../router";
 
 test("renders user search", () => {
-  render(<Search />);
-  const searchUsername = screen.getByTestId("username");
+  render(
+    <MemoryRouter>
+      <SearchBar />
+    </MemoryRouter>
+  );
+  const searchUsername = document.getElementById("username");
   expect(searchUsername).toBeInTheDocument();
 });
 
 test("renders repository filter", () => {
-  render(<Search />);
-  const searchUsername = screen.getByTestId("username") as HTMLInputElement;
-  (searchUsername as HTMLInputElement).value = "Dopeamin";
-  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    console.log(e.key);
-  };
-  searchUsername.dispatchEvent(
-    new KeyboardEvent("keypress", {
-      key: "enter",
-    })
+  const { getByTestId, rerender } = render(
+    <MemoryRouter initialEntries={["/search/Dopeamin"]}>
+      <Search />
+    </MemoryRouter>
   );
-  const searchRepo = screen.getByTestId("repository");
+  const searchRepo = document.getElementById("repository");
   expect(searchRepo).toBeInTheDocument();
+});
+
+test("search filtering working", async () => {
+  render(
+    <MemoryRouter initialEntries={["/search/Dopeamin"]}>
+      <Router />
+    </MemoryRouter>
+  );
+  const searchRepo = document.getElementById("repository") as HTMLInputElement;
+  expect(document.getElementsByTagName("span")[0]).toBeInTheDocument();
+
+  await waitForElementToBeRemoved(() => document.getElementsByTagName("span")[0]);
+  expect(document.getElementById("card")).toBeInTheDocument();
+  searchRepo.value = "angular";
+  fireEvent.keyPress(searchRepo, { key: "Enter" });
+  await waitForElementToBeRemoved(() => document.getElementsByTagName("span")[0]);
+  expect(document.getElementById("card")).toBeInTheDocument();
 });

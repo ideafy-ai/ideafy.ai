@@ -21,7 +21,7 @@ function Card(props: any) {
   };
   return (
     <>
-      <div className="content bg-light-grey card" onClick={showModal}>
+      <div className="content bg-light-grey card" onClick={showModal} data-testid="card" id="card">
         <div className="info flex flex-start mr-10">
           <div className="avatar">
             <img src={repo.owner.avatar_url} alt="user"></img>

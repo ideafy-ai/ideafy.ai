@@ -48,9 +48,9 @@ function SearchBar(props: any) {
   };
   if (props.type === "big")
     return (
-      <div className="search flex-6 mw-200 mt-10">
+      <div className="search flex-6 mw-200 mt-10" id="repository">
         <input
-          id="search"
+          id="repository"
           placeholder={props.placeholder}
           onChange={(event) => {
             setSearch(event.target.value);
@@ -64,15 +64,15 @@ function SearchBar(props: any) {
       </div>
     );
   return (
-    <div className="search flex-3 mw-200 mt-10">
+    <div className="search flex-3 mw-200 mt-10" id="username">
       <input
-        id="search"
+        id="username"
         placeholder={props.placeholder}
         onChange={(event) => {
           setSearch(event.target.value);
         }}
         onKeyPress={handleKeyPress}
-        data-testid="username"
+        
       ></input>
     </div>
   );

@@ -21,16 +21,21 @@ function Search() {
    */
   useEffect(() => {
     setRepos([]);
+    let isMounted = true;
     GithubService.getRepositories(match.params.user!).then((res) => {
-      setRepos(res);
-      setAllRepos(res);
-      setLoading(false);
-      if (!res.length && match.params.user) {
-        toast.info("No data was found");
-        navigate("/search");
+      if (isMounted) {
+        setRepos(res);
+        setAllRepos(res);
+        setLoading(false);
+        if (!res.length && match.params.user) {
+          toast.info("No data was found");
+          navigate("/search");
+        }
       }
     });
-
+    return () => {
+      isMounted = false;
+    };
     // eslint-disable-line react-hooks/exhaustive-deps
   }, [refresh]);
 
@@ -63,7 +68,7 @@ function Search() {
           />
         </div>
         <div className="card-container">
-          <ClipLoader color={color} loading={loading} size={150}></ClipLoader>
+          <ClipLoader color={color} loading={loading} size={150} data-testid="hi"></ClipLoader>
           {
             /**
              * Render cards for each specific repo
