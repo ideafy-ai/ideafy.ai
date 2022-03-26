@@ -123,9 +123,9 @@ You will need to have the latest npm installed
 ## Testing
 
 To run the test suite run this command
-```sh
-npm run test
-````
+  ```sh
+  npm run start
+  ````
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -134,9 +134,9 @@ npm run test
 ## Storybooks
 
 Start Storybooks
-    ```sh
-    npm run storybook
-    ````
+  ```sh
+  npm run storybook
+  ````
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
