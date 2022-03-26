@@ -38,8 +38,7 @@ test("search filtering working", async () => {
 
   await waitForElementToBeRemoved(() => document.getElementsByTagName("span")[0]);
   expect(document.getElementById("card")).toBeInTheDocument();
-  searchRepo.value = "angular";
-  fireEvent.keyPress(searchRepo, { key: "Enter" });
-  await waitForElementToBeRemoved(() => document.getElementsByTagName("span")[0]);
-  expect(document.getElementById("card")).toBeInTheDocument();
+  searchRepo.value = "angularrrrrrr";
+  await fireEvent.keyPress(searchRepo, { key: "Enter" });
+  await screen.findAllByTestId("card");
 });

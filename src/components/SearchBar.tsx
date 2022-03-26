@@ -6,13 +6,14 @@ import "../_globals/global.scss";
 function SearchBar(props: any) {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
-
+  const preview = props.preview ? props.preview : false;
   /**
    * Navigate to specific user repositories or filter through a user's repository
    * and show a toast if there is no data found
    * @param {ant} event
    */
   const navigateToSearch = (event: any) => {
+    if(!preview)
     if (props.user === undefined) {
       navigate("/search/" + search);
       props.setLoading(true);
@@ -42,6 +43,7 @@ function SearchBar(props: any) {
    * @param {any} event
    */
   const handleKeyPress = (event: any) => {
+    
     if (event.key === "Enter") {
       navigateToSearch(event);
     }
@@ -53,7 +55,7 @@ function SearchBar(props: any) {
           id="repository"
           placeholder={props.placeholder}
           onChange={(event) => {
-            setSearch(event.target.value);
+            if(!preview)setSearch(event.target.value);
           }}
           data-testid="repository"
           onKeyPress={handleKeyPress}
@@ -69,7 +71,7 @@ function SearchBar(props: any) {
         id="username"
         placeholder={props.placeholder}
         onChange={(event) => {
-          setSearch(event.target.value);
+          if(!preview) setSearch(event.target.value);
         }}
         onKeyPress={handleKeyPress}
         
